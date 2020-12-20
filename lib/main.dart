@@ -15,68 +15,68 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
-      'questionText': 'Q1. Who created Flutter?',
+      'questionText': 'Q1. Who played in the movie "Gladiator"?',
       'answers': [
-        {'text': 'Facebook', 'score': -2},
-        {'text': 'Adobe', 'score': -2},
-        {'text': 'Google', 'score': 10},
-        {'text': 'Microsoft', 'score': -2},
+        {'text': 'Brad Pit', 'score': -2},
+        {'text': 'Jennifer Aniston', 'score': -2},
+        {'text': 'Jennifer Lawrense', 'score': 10},
+        {'text': 'Russel Crowe', 'score': -2},
       ],
     },
     {
-      'questionText': 'Q2. What is Flutter?',
+      'questionText': 'Q2. In what year did WW2 End?',
       'answers': [
-        {'text': 'Android Development Kit', 'score': -2},
-        {'text': 'IOS Development Kit', 'score': -2},
-        {'text': 'Web Development Kit', 'score': -2},
+        {'text': '1949', 'score': -2},
+        {'text': '1935', 'score': -2},
+        {'text': '1966', 'score': -2},
         {
           'text':
-          'SDK to build beautiful IOS, Android, Web & Desktop Native Apps',
+          '1945',
           'score': 10
         },
       ],
     },
     {
-      'questionText': ' Q3. Which programing language is used by Flutter',
+      'questionText': ' Q3. Which major sport is mostly watched in Australia?',
       'answers': [
-        {'text': 'Ruby', 'score': -2},
-        {'text': 'Dart', 'score': 10},
-        {'text': 'C++', 'score': -2},
-        {'text': 'Kotlin', 'score': -2},
+        {'text': 'Basketball', 'score': -2},
+        {'text': 'Tennis', 'score': 10},
+        {'text': 'Soccer', 'score': -2},
+        {'text': 'Volleyball', 'score': -2},
       ],
     },
     {
-      'questionText': 'Q4. Who created Dart programing language?',
+      'questionText': 'Q4. Which sea animal has infinite life?',
       'answers': [
-        {'text': 'Lars Bak and Kasper Lund', 'score': 10},
-        {'text': 'Brendan Eich', 'score': -2},
-        {'text': 'Bjarne Stroustrup', 'score': -2},
-        {'text': 'Jeremy Ashkenas', 'score': -2},
+        {'text': 'Lobster', 'score': 10},
+        {'text': 'Crab', 'score': -2},
+        {'text': 'Prawn', 'score': -2},
+        {'text': 'Seal', 'score': -2},
       ],
     },
     {
       'questionText':
-      'Q5. Is Flutter for Web and Desktop available in stable version?',
+      'Q5. In which continent is Amazon Forest at?',
       'answers': [
         {
-          'text': 'Yes',
+          'text': 'North America',
           'score': -2,
         },
-        {'text': 'No', 'score': 10},
+        {'text': 'South America', 'score': 10},
       ],
     },
   ];
-
+//
   var _questionIndex = 0;
   var _totalScore = 0;
-
+//
   void _resetQuiz() {
     setState(() {
       _questionIndex = 0;
       _totalScore = 0;
     });
   }
-
+//
   void _answerQuestion(int score) {
     _totalScore += score;
 
@@ -96,7 +96,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Geeks for Geeks'),
+          title: Text('Quiz App'),
           backgroundColor: Color(0xFF00E676),
         ),
         body: Padding(
@@ -107,8 +107,10 @@ class _MyAppState extends State<MyApp> {
             questionIndex: _questionIndex,
             questions: _questions,
           ) //Quiz
+
               : Result(_totalScore, _resetQuiz),
-        ), //Padding
+        )
+    , //Padding
       ), //Scaffold
       debugShowCheckedModeBanner: false,
     ); //MaterialApp
